@@ -2,30 +2,49 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+// main vars
+$container-width: 1200px;
+
+// font vars
 $primary-font-family: 'Raleway', sans-serif;
 $secondary-font-family: 'Playfair Display', serif;
 
-$shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semiBold: 600;
+$font-weight-bold: 700;
 
-$color-brown: #3f3b38;
-$color-orange: #cc9065;
+// color vars
+$color-brown: #3F3B38;
+$color-orange: #CC9065;
+$color-white: #FFFFFF;
+$color-floral-white: #FFF9ED;
 
-// light theme vars
+
+// theme vars
 $dark-text-color: $color-brown;
-$light-background-color: #fff9ed;
+$light-background-color: $color-floral-white;
 
-// dark theme vars
-$light-text-color: #3f3b38;
-$dark-background-color: #fff9ed;
+$light-text-color: $color-floral-white;
+$dark-background-color: $color-brown;
 
 // button color
 $background-color-orange: $color-orange;
 $background-color-brown: $color-brown;
 
+$shadow: rgba(73, 56, 61, 0.144) 0px 8px 24px;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 html {
   font-family: $primary-font-family;
   color: $dark-text-color;
   scroll-behavior: smooth;
+  line-height: 1.5;
 }
 
 .page {
@@ -43,11 +62,11 @@ html {
       top: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.7;
+      filter: brightness(1.2) contrast(80%);
       background-image: url('./src/assets/images/interior.jpg');
       background-repeat: no-repeat;
-      background-position: 0 20%;
       background-size: cover;
+      background-position: center;
     }
   }
   &__header {
@@ -60,14 +79,17 @@ html {
 
 .header {
   display: block;
+  font-weight: 500;
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 30px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  background-color: rgba($color-white, 0.5);
   font-family: $secondary-font-family;
   box-shadow: $shadow;
+  
   &__container {
-    max-width: 1200px;
+    max-width: $container-width;
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: content-box;
@@ -96,7 +118,7 @@ html {
   position: relative;
 
   &__container {
-    max-width: 1200px;
+    max-width: $container-width;
     margin: 0 auto;
     padding: 150px 15px;
     box-sizing: content-box;
@@ -104,17 +126,25 @@ html {
 
   &__titleWrapper {
     position: relative;
-    z-index: 10;
+
+    @include flexCenter;
+    flex-direction: column;
   }
 
   &__slogan {
-    max-width: 600px;
+    max-width: 800px;
+
+    font-size: calc((1vh + 1vw) * 3);
+
+    font-weight: 500;
     font-family: $secondary-font-family;
+    text-align: center;
   }
 
   &__button {
     max-width: 250px;
     margin-top: 40px;
+    animation: scaleAnimation ease-in-out 2s infinite;
   }
 }
 
@@ -123,7 +153,7 @@ html {
   text-align: center;
 
   border-radius: 40px;
-  color: #fff9ed;
+  color: $light-text-color;
 
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
@@ -132,6 +162,11 @@ html {
   cursor: pointer;
 
   transition: all ease-out 0.2s;
+  background-color: $background-color-orange;
+
+  &:hover {
+    background-color: darken($background-color-orange, 10%);
+  }
 
   &:active {
     transform: scale(1.1);
@@ -143,62 +178,39 @@ html {
   &-large {
     padding: 20px 30px;
   }
-
-  &-light {
-    background-color: $background-color-orange;
-
-    &:hover {
-      background-color: darken($background-color-orange, 10%);
-    }
-  }
-  &-dark {
-    background-color: $background-color-brown;
-    &:hover {
-      background-color: darken($background-color-brown, 10%);
-    }
-  }
-}
-
-.slogan {
-  max-width: 500px;
-  line-height: 1.5;
-  font-size: 50px;
-  font-style: italic;
-
-  &__text {
-    opacity: 0.8;
-  }
-
-  &__accent {
-    opacity: 1;
-  }
 }
 
 .section {
   padding: 50px 0;
+  text-align: center;
 
   &__container {
-    max-width: 1200px;
+    max-width: $container-width;
     margin: 0 auto;
-    padding: 15px;
+    padding: 0 15px;
     box-sizing: content-box;
   }
   &__products {
   }
+
   &__title {
     font-size: 50px;
-    text-align: center;
     margin: 30px 0;
   }
   &__paragraph {
     font-size: 25px;
-    text-align: center;
     margin: 10px 0;
-    opacity: 0.8;
+    font-weight: 300;
   }
 
   &__sofas {
     background-color: rgba(73, 134, 175, 0.418);
+  }
+  &__tables {
+    background-color: rgba(197, 133, 133, 0.418);
+  }
+  &__chairs {
+    background-color: rgba(224, 200, 118, 0.418);
   }
 }
 
@@ -221,8 +233,9 @@ html {
 }
 
 .productCard {
+  position: relative;
   width: 230px;
-  background-color: white;
+  background-color: $color-white;
   padding: 20px;
   border-radius: 20px;
   box-shadow: $shadow;
@@ -232,8 +245,10 @@ html {
   }
 
   &__wrapper {
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     row-gap: 10px;
   }
 
@@ -247,8 +262,9 @@ html {
   }
 
   &__title {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
+    text-align: center;
   }
 
   &__buyWrapper {
@@ -257,7 +273,8 @@ html {
   }
 
   &__date {
-    opacity: 0.7;
+    text-align: start;
+    font-weight: 300;
   }
 }
 
@@ -301,7 +318,30 @@ html {
   }
 
   &::backdrop {
-    background-color: rgba(44, 40, 63, 0.445);
+    background-color: rgba(17, 16, 20, 0.671);
+    backdrop-filter: blur(5px);
+  }
+}
+
+.footer {
+  &__container {
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+  &__nav {
+  }
+}
+
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
