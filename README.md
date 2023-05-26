@@ -12,7 +12,7 @@
 
 ## 🔗 Github Pages
 
-[Live link](https://safym.github.io/layout-store/)
+[Live link](https://safym.github.io/landing-harmony-home/)
 
 ## 📸 Screenshots
 
