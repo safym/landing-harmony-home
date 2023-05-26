@@ -17,13 +17,12 @@
       <!-- Header -->
       <header class="page__header header">
         <div class="header__container">
-   
           <a class="header__logo logo" href="#"> Harmony Home </a>
 
           <input class="burger__toggle" id="burger__toggle" type="checkbox" />
           <label class="burger__button" for="burger__toggle">
             <span></span>
-          </label>  
+          </label>
 
           <div class="header__wrapper">
             <nav class="header__nav nav">
@@ -41,7 +40,6 @@
               </label>
             </div>
           </div>
-          
         </div>
       </header>
       <!-- Main section -->
@@ -985,53 +983,6 @@
           </div>
         </div>
       </section>
-      <!-- Dialog purchase form -->
-      <dialog id="modal" class="dialog">
-        <h2 class="dialog__title">Purchase form</h2>
-        <form method="dialog" class="dialog__form">
-          <div class="dialog__dataWrapper">
-            <span class="dialog__label">Product: </span>
-            <span class="dialog__data" data-formData="productName"></span>
-          </div>
-          <div class="dialog__dataWrapper">
-            <span class="dialog__label">Add date: </span>
-            <span class="dialog__data" data-formData="addDate"></span>
-          </div>
-          <div class="dialog__inputWrapper">
-            <label class="dialog__label" for="count">Enter quantity: </label>
-            <input class="dialog__input input" type="number" name="count" id="count" />
-          </div>
-          <div class="dialog__inputWrapper">
-            <span class="dialog__label">Choose a color: </span>
-            <fieldset class="dialog__groupColor">
-              <div class="dialog__radioButton radioButton">
-                <input type="radio" class="radioButton__input" id="salmon" name="color" value="salmon" />
-                <label class="radioButton__label radioButton__label-salmon" for="salmon" title="Salmon"></label>
-              </div>
-              <div class="dialog__radioButton radioButton">
-                <input type="radio" class="radioButton__input" id="teal" name="color" value="teal" />
-                <label class="radioButton__label radioButton__label-teal" for="teal" title="Teal"></label>
-              </div>
-              <div class="dialog__radioButton radioButton">
-                <input type="radio" class="radioButton__input" id="rajah" name="color" value="rajah" />
-                <label class="radioButton__label radioButton__label-rajah" for="rajah" title="Rajah"></label>
-              </div>
-              <div class="dialog__radioButton radioButton">
-                <input type="radio" class="radioButton__input" id="selena" name="color" value="selena" />
-                <label class="radioButton__label radioButton__label-selena" for="selena" title="Selena"></label>
-              </div>
-            </fieldset>
-          </div>
-          <div class="dialog__textareaWrapper">
-            <span class="dialog__label">Enter comment: </span>
-            <textarea class="dialog__textarea textarea" placeholder="Comment here..." rows="3"></textarea>
-          </div>
-          <div class="dialog__actionsWrapper">
-            <button class="dialog__button button button-small" id="modalConfirm" type="submit">Confirm</button>
-            <button class="dialog__button button button-small" id="modalCancel" type="reset">Close</button>
-          </div>
-        </form>
-      </dialog>
       <!-- Footer -->
       <footer class="footer">
         <div class="footer__container">
@@ -1066,6 +1017,75 @@
           </div>
         </div>
       </footer>
+      <!-- Dialog purchase form -->
+      <dialog id="modal" class="page__dialog dialog">
+        <h2 class="dialog__title">Purchase form</h2>
+        <form method="dialog" class="dialog__form" id="dialogForm">
+          <div class="dialog__dataWrapper">
+            <span class="dialog__label">Product: </span>
+            <span class="dialog__data" data-formData="productName"></span>
+          </div>
+          <div class="dialog__dataWrapper">
+            <span class="dialog__label">Add date: </span>
+            <span class="dialog__data" data-formData="addDate"></span>
+          </div>
+          <div class="dialog__inputWrapper">
+            <label class="dialog__label" for="count">Enter quantity: </label>
+            <input
+              class="dialog__input input"
+              type="number"
+              name="count"
+              id="count"
+              value="1"
+              min="1"
+              step="1"
+              onKeyDown="return false"
+              required
+            />
+          </div>
+          <div class="dialog__inputWrapper">
+            <span class="dialog__label">Choose a color: </span>
+            <fieldset class="dialog__groupColor">
+              <div class="dialog__radioButton radioButton">
+                <input type="radio" class="radioButton__input" id="salmon" name="color" value="salmon" />
+                <label
+                  class="radioButton__label radioButton__label-salmon"
+                  for="salmon"
+                  title="Salmon"
+                  required
+                ></label>
+              </div>
+              <div class="dialog__radioButton radioButton">
+                <input type="radio" class="radioButton__input" id="teal" name="color" value="teal" />
+                <label class="radioButton__label radioButton__label-teal" for="teal" title="Teal"></label>
+              </div>
+              <div class="dialog__radioButton radioButton">
+                <input type="radio" class="radioButton__input" id="rajah" name="color" value="rajah" />
+                <label class="radioButton__label radioButton__label-rajah" for="rajah" title="Rajah"></label>
+              </div>
+              <div class="dialog__radioButton radioButton">
+                <input type="radio" class="radioButton__input" id="selena" name="color" value="selena" />
+                <label class="radioButton__label radioButton__label-selena" for="selena" title="Selena"></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="dialog__textareaWrapper">
+            <span class="dialog__label">Enter comment: </span>
+            <textarea
+              class="dialog__textarea textarea"
+              placeholder="Comment here..."
+              rows="3"
+              maxlength="2000"
+            ></textarea>
+          </div>
+          <div class="dialog__actionsWrapper">
+            <button class="dialog__button button button-small" id="modalConfirm" type="submit">Confirm</button>
+            <button class="dialog__button button button-small" id="modalCancel" type="reset">Close</button>
+          </div>
+        </form>
+      </dialog>
+      <!-- Up arrow -->
+      <div class="page__scrollToTop scrollToTop">&#9650;</div>
     </div>
   </body>
 </html>
