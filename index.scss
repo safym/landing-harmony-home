@@ -633,6 +633,23 @@ html {
       font-size: $font-size-xl;
     }
   }
+
+  .dialog {
+    padding: 10px;
+
+    &__title {
+      font-size: $font-size-xl;
+    }
+
+    &__inputWrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .footer {
+    text-align: center;
+  }
 }
 
 @keyframes scaleAnimation {
