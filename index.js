@@ -21,4 +21,15 @@ const handleClick = (event) => {
   }
 }
 
+const changeTheme = () => {
+  const element = document.body
+  const isDarkTheme = eval(element.dataset.dark)
+
+  element.dataset.dark = !isDarkTheme
+}
+
 window.document.addEventListener('click', handleClick)
+
+const themeToggler = document.getElementById('themeToggler')
+
+themeToggler.addEventListener('click', changeTheme)

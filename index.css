@@ -1,55 +1,39 @@
-@import url(./src/styles/reset.scss);
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
   color: #3f3b38;
   scroll-behavior: smooth;
-  line-height: 1.5;
-  font-style: normal;
 }
 
 .page {
-  background-color: #fff9ed;
   position: relative;
-}
-.page__main {
-  height: 100vh;
-}
-.page__main:before {
-  content: " ";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  filter: brightness(1.2) contrast(80%);
-  background-image: url("./src/assets/images/interior.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: #fff9ed;
+  transition: background 0.2s;
 }
 .page__header {
   position: fixed;
   z-index: 20;
 }
+
 .header {
   display: block;
-  font-weight: 500;
   width: 100%;
   padding: 10px 0;
-  font-size: 20px;
+  font-weight: 500;
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.5);
-  font-family: "Playfair Display", serif;
   box-shadow: rgba(73, 56, 61, 0.144) 0px 8px 24px;
+  transition: background 0.2s;
 }
 .header__container {
+  display: flex;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-  display: flex;
   box-sizing: content-box;
 }
 .header__logo {
@@ -59,17 +43,17 @@ html {
   flex: 1 1 auto;
 }
 .logo {
-  color: #3f3b38;
   font-family: "Playfair Display", serif;
   font-weight: 700;
+  font-size: 20px;
 }
 
 .toggler {
-  display: flex;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  display: flex;
   align-items: center;
 }
 .toggler__checkbox {
@@ -85,6 +69,7 @@ html {
   cursor: pointer;
   display: flex;
   align-items: center;
+  vertical-align: middle;
   justify-content: space-between;
   padding: 5px;
   position: relative;
@@ -103,14 +88,13 @@ html {
   transition: transform 0.2s linear;
 }
 .toggler__icon {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .nav {
   display: flex;
   align-items: center;
   font-size: 18px;
-  font-family: "Raleway", sans-serif;
 }
 .nav__link {
   padding: 5px;
@@ -121,15 +105,31 @@ html {
 
 .main {
   position: relative;
+  height: 100vh;
+}
+.main:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-image: url("./src/assets/images/interior.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .main__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 150px 15px;
+  padding: 0 15px;
   box-sizing: content-box;
 }
 .main__titleWrapper {
   position: relative;
+  padding-top: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,6 +149,10 @@ html {
 }
 
 .button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   display: block;
   text-align: center;
   border-radius: 40px;
@@ -193,20 +197,20 @@ html {
   font-weight: 300;
 }
 .section__sofas {
-  background-color: rgba(124, 170, 201, 0.418);
+  background-color: rgba(124, 170, 201, 0.3);
 }
 .section__tables {
-  background-color: rgba(255, 162, 162, 0.372);
+  background-color: rgba(255, 162, 162, 0.3);
 }
 .section__chairs {
-  background-color: rgba(255, 227, 134, 0.418);
+  background-color: rgba(255, 227, 134, 0.3);
 }
 .section__accessories {
-  background-color: rgba(167, 224, 118, 0.418);
+  background-color: rgba(167, 224, 118, 0.3);
 }
 
 .products__title {
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
   margin: 20px 0;
 }
@@ -226,6 +230,7 @@ html {
   padding: 20px;
   border-radius: 20px;
   box-shadow: rgba(73, 56, 61, 0.144) 0px 8px 24px;
+  transition: background 0.2s;
 }
 .productCard:hover .productCard__image {
   transform: scale(1.15);
@@ -239,10 +244,10 @@ html {
 }
 .productCard__imageWrapper {
   overflow: hidden;
+  border-radius: 10px;
 }
 .productCard__image {
   transition: transform 0.2s;
-  border-radius: 10px;
 }
 .productCard__title {
   font-size: 20px;
@@ -272,16 +277,13 @@ html {
 .dialog__title {
   font-size: 50px;
 }
-.dialog__data {
+.dialog__data, .dialog__input, .dialog__textarea {
   font-weight: 600;
 }
 .dialog__inputWrapper {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-}
-.dialog__input {
-  font-weight: 600;
 }
 .dialog__actionsWrapper {
   display: flex;
@@ -299,9 +301,13 @@ html {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 0 15px;
+  box-sizing: content-box;
+}
+.footer__wrapper {
   display: flex;
   align-items: center;
+  padding: 50px 0;
 }
 .footer__column {
   display: flex;
@@ -321,6 +327,23 @@ html {
 }
 .footer__contact:not(:last-child) {
   margin-bottom: 10px;
+}
+
+[data-dark=true] .page {
+  background-color: #3f3b38;
+  color: #fff9ed;
+}
+[data-dark=true] .productCard {
+  background-color: rgba(63, 59, 56, 0.8);
+}
+[data-dark=true] .header {
+  background-color: rgba(63, 59, 56, 0.7);
+}
+[data-dark=true] .toggler__label {
+  box-shadow: #fff9ed 0px 0px 0px 2px;
+}
+[data-dark=true] .toggler__button {
+  background-color: #fff9ed;
 }
 
 @keyframes scaleAnimation {

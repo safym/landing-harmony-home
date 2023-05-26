@@ -1,18 +1,26 @@
-@import url(./src/styles/reset.scss);
+@import "./src/styles/mixins.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 // main vars
 $container-width: 1200px;
+$container-offset: 15px;
 
 // font vars
 $primary-font-family: "Raleway", sans-serif;
 $secondary-font-family: "Playfair Display", serif;
 
+$font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semiBold: 600;
 $font-weight-bold: 700;
+
+$font-size-s : 18px;
+$font-size-m : 20px;
+$font-size-l : 25px;
+$font-size-xl : 30px;
+$font-size-xxl : 50px;
 
 // color vars
 $color-brown: #3f3b38;
@@ -33,76 +41,46 @@ $background-color-brown: $color-brown;
 
 $shadow: rgba(73, 56, 61, 0.144) 0px 8px 24px;
 
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 html {
   font-family: $primary-font-family;
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  line-height: 1.5;
   color: $dark-text-color;
   scroll-behavior: smooth;
-  line-height: 1.5;
-  font-style: normal;
 }
 
+// ---------- page ---------- //
 .page {
-  background-color: $light-background-color;
   position: relative;
+  background-color: $light-background-color;
+  transition:background 0.2s;
 
-  &__main {
-    height: 100vh;
-
-    &:before {
-      content: " ";
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      filter: brightness(1.2) contrast(80%);
-      background-image: url("./src/assets/images/interior.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-  }
   &__header {
     position: fixed;
     z-index: 20;
   }
-  &__section {
-  }
 }
 
+// ---------- header ---------- //
 .header {
   display: block;
-  font-weight: 500;
   width: 100%;
   padding: 10px 0;
-  font-size: 20px;
+
+  font-weight: $font-weight-medium;
+
   backdrop-filter: blur(20px);
   background-color: rgba($color-white, 0.5);
-  font-family: $secondary-font-family;
   box-shadow: $shadow;
+  transition: background 0.2s;
 
   &__container {
+    display: flex;
     max-width: $container-width;
     margin: 0 auto;
-    padding: 0 15px;
-    display: flex;
-    box-sizing: content-box;
+
+    @include offsetContainer($container-offset);
   }
 
   &__logo {
@@ -117,15 +95,17 @@ html {
   }
 }
 
+// ---------- logo ---------- //
 .logo {
-  color: $color-brown;
   font-family: $secondary-font-family;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-m;
 }
 
+// ---------- theme toggler ---------- //
 .toggler {
-  display: flex;
   @include noselect;
+  display: flex;
   align-items: center;
 
   &__checkbox {
@@ -143,6 +123,7 @@ html {
     cursor: pointer;
     display: flex;
     align-items: center;
+    vertical-align: middle;
     justify-content: space-between;
     padding: 5px;
     position: relative;
@@ -163,36 +144,56 @@ html {
   }
 
   &__icon {
-    font-size: 15px;
+    font-size: $font-size-s;
   }
 }
 
+// ---------- nav list ---------- //
 .nav {
   display: flex;
   align-items: center;
-  font-size: 18px;
-  font-family: $primary-font-family;
+  font-size: $font-size-s;
 
   &__link {
     padding: 5px;
+
     &:not(:last-child) {
       margin-right: 20px;
     }
   }
 }
 
+// ---------- main (title) section ---------- //
 .main {
   position: relative;
+  height: 100vh;
+
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    // filter: brightness(1.2) contrast(70%);
+    opacity: 0.5;
+    background-image: url("./src/assets/images/interior.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 
   &__container {
     max-width: $container-width;
     margin: 0 auto;
-    padding: 150px 15px;
-    box-sizing: content-box;
+    @include offsetContainer($container-offset);
   }
 
   &__titleWrapper {
     position: relative;
+    padding-top: 8%;
 
     @include flexCenter;
     flex-direction: column;
@@ -200,10 +201,9 @@ html {
 
   &__slogan {
     max-width: 800px;
-
     font-size: calc((1vh + 1vw) * 3);
 
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     font-family: $secondary-font-family;
     text-align: center;
   }
@@ -215,7 +215,9 @@ html {
   }
 }
 
+// ---------- button ---------- //
 .button {
+  @include noselect;
   display: block;
   text-align: center;
 
@@ -223,8 +225,8 @@ html {
   color: $light-text-color;
 
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: $font-size-m;
+  font-weight: $font-weight-semiBold;
 
   cursor: pointer;
 
@@ -247,6 +249,7 @@ html {
   }
 }
 
+// ---------- content section ---------- //
 .section {
   padding: 50px 0;
   text-align: center;
@@ -254,39 +257,39 @@ html {
   &__container {
     max-width: $container-width;
     margin: 0 auto;
-    padding: 0 15px;
-    box-sizing: content-box;
+    @include offsetContainer($container-offset);
   }
   &__products {
   }
 
   &__title {
-    font-size: 50px;
+    font-size: $font-size-xxl;
     margin: 30px 0;
   }
   &__paragraph {
-    font-size: 25px;
+    font-size: $font-size-l;
     margin: 10px 0;
-    font-weight: 300;
+    font-weight: $font-weight-light;
   }
 
   &__sofas {
-    background-color: rgba(124, 170, 201, 0.418);
+    background-color: rgba(124, 170, 201, 0.3);
   }
   &__tables {
-    background-color: rgba(255, 162, 162, 0.372);
+    background-color: rgba(255, 162, 162, 0.3);
   }
   &__chairs {
-    background-color: rgba(255, 227, 134, 0.418);
+    background-color: rgba(255, 227, 134, 0.3);
   }
   &__accessories {
-    background-color: rgba(167, 224, 118, 0.418);
+    background-color: rgba(167, 224, 118, 0.3);
   }
 }
 
+// ---------- products list ---------- //
 .products {
   &__title {
-    font-size: 35px;
+    font-size: $font-size-xl;
     text-align: center;
     margin: 20px 0;
   }
@@ -302,6 +305,7 @@ html {
   }
 }
 
+// ---------- product card ---------- //
 .productCard {
   position: relative;
   width: 230px;
@@ -309,6 +313,7 @@ html {
   padding: 20px;
   border-radius: 20px;
   box-shadow: $shadow;
+  transition: background 0.2s;
 
   &:hover &__image {
     transform: scale(1.15);
@@ -324,16 +329,16 @@ html {
 
   &__imageWrapper {
     overflow: hidden;
+    border-radius: 10px;
   }
 
   &__image {
     transition: transform 0.2s;
-    border-radius: 10px;
   }
 
   &__title {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: $font-size-m;
+    font-weight: $font-weight-medium;
     text-align: center;
   }
 
@@ -344,10 +349,11 @@ html {
 
   &__date {
     text-align: start;
-    font-weight: 300;
+    font-weight: $font-weight-light;
   }
 }
 
+// ---------- dialog prchase element ---------- //
 .dialog {
   margin: auto auto;
   padding: 30px 50px;
@@ -357,28 +363,26 @@ html {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    font-size: 20px;
+    font-size: $font-size-m;
   }
 
   &__title {
-    font-size: 50px;
+    font-size: $font-size-xxl;
   }
 
   &__dataWrapper {
   }
   &__label {
   }
-  &__data {
-    font-weight: 600;
+  &__data,
+  &__input,
+  &__textarea {
+    font-weight: $font-weight-semiBold;
   }
   &__inputWrapper {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-  }
-
-  &__input {
-    font-weight: 600;
   }
 
   &__actionsWrapper {
@@ -393,14 +397,19 @@ html {
   }
 }
 
+// ---------- footer ---------- //
 .footer {
   &__container {
     position: relative;
     max-width: $container-width;
     margin: 0 auto;
-    padding: 50px 0;
+    @include offsetContainer($container-offset);
+  }
+
+  &__wrapper {
     display: flex;
     align-items: center;
+    padding: 50px 0;
   }
 
   &__column {
@@ -418,12 +427,34 @@ html {
 
   &__contactWrapper {
     width: 45%;
-    font-weight: 600;
+    font-weight: $font-weight-semiBold;
   }
 
   &__contact {
     &:not(:last-child) {
       margin-bottom: 10px;
+    }
+  }
+}
+
+// ---------- dark theme  ---------- // 
+[data-dark="true"] {
+  .page {
+    background-color: $dark-background-color;
+    color: $light-text-color;
+  }
+  .productCard {
+    background-color: rgba($dark-background-color, 0.8);
+  }
+  .header {
+    background-color: rgba($dark-background-color, 0.7);
+  }
+  .toggler {
+    &__label {
+      box-shadow: $light-text-color 0px 0px 0px 2px;
+    }
+    &__button {
+      background-color: $light-text-color;
     }
   }
 }
