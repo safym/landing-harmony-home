@@ -167,6 +167,52 @@ html {
   }
 }
 
+// ---------- burger button ---------- //
+.burger {
+  &__toggle {
+    opacity: 0;
+    position: absolute;
+  }
+  &__toggle:checked + &__button > span {
+    transform: rotate(45deg);
+  }
+  &__toggle:checked + &__button > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  &__toggle:checked + &__button > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  &__button {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 25;
+  }
+  &__button > span,
+  &__button > span::before,
+  &__button > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transition-duration: 0.25s;
+    background-color: $dark-background-color;
+  }
+  &__button > span::before {
+    content: "";
+    top: -8px;
+  }
+  &__button > span::after {
+    content: "";
+    top: 8px;
+  }
+}
+
 // ---------- Page styles ---------- //
 // ---------- page ---------- //
 .page {
@@ -194,15 +240,20 @@ html {
   transition: background 0.2s;
 
   &__container {
-    display: flex;
     max-width: $container-width;
     margin: 0 auto;
 
     @include offsetContainer($container-offset);
   }
 
+  &__wrapper {
+    display: flex;
+  }
+
   &__logo {
+    position: relative;
     margin-right: 40px;
+    z-index: 20;
   }
 
   &__nav {
@@ -248,13 +299,14 @@ html {
 
   &__container {
     max-width: $container-width;
+    height: 100%;
     margin: 0 auto;
     @include offsetContainer($container-offset);
   }
 
   &__titleWrapper {
     position: relative;
-    padding-top: 8%;
+    padding-top: 100px;
 
     @include flexCenter;
     flex-direction: column;
@@ -440,25 +492,20 @@ html {
 
   &__wrapper {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
+    row-gap: 20px;
+    column-gap: 20px;
     padding: 50px 0;
   }
 
   &__column {
     @include flexCenter;
-  }
-
-  &__nav {
-    width: 45%;
-  }
-
-  &__icon {
-    width: 10%;
-    opacity: 0.5;
+    flex-grow: 1;
   }
 
   &__contactWrapper {
-    width: 45%;
     font-size: $font-size-s;
     font-weight: $font-weight-semiBold;
   }
@@ -476,18 +523,82 @@ html {
     background-color: $dark-background-color;
     color: $light-text-color;
   }
+
   .productCard {
     background-color: rgba($dark-background-color, 0.8);
   }
+
   .header {
     background-color: rgba($dark-background-color, 0.7);
   }
+
+  .burger__toggle:checked ~ .header__wrapper {
+    background-color: $dark-background-color;
+  }
+
+  .burger__button > span,
+  .burger__button > span::before,
+  .burger__button > span::after {
+    background-color: $light-text-color;
+  }
+
   .toggler {
     &__label {
       box-shadow: $light-text-color 0px 0px 0px 2px;
     }
     &__button {
       background-color: $light-text-color;
+    }
+  }
+}
+
+// tablet and mobile screen
+@media only screen and (max-width: 700px) {
+  .header {
+    .burger__toggle:checked ~ &__wrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    &__wrapper {
+      display: none;
+      position: absolute;
+      padding-top: 70px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      background-color: $light-background-color;
+    }
+
+    &__nav {
+      flex-grow: 0;
+      flex-direction: column;
+    }
+
+    &__toggler {
+      justify-content: center;
+    }
+  }
+
+  .main {
+    &::before {
+      opacity: 0.2;
+      background-position: 0 50%;
+    }
+
+    &__titleWrapper {
+      height: 100%;
+    }
+  }
+
+  .section {
+    &__title {
+      font-size: $font-size-xl;
     }
   }
 }
