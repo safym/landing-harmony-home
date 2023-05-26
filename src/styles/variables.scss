@@ -1,0 +1,48 @@
+// main vars
+$container-width: 1200px;
+$container-offset: 15px;
+
+// font vars
+$primary-font-family: "Raleway", sans-serif;
+$secondary-font-family: "Playfair Display", serif;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semiBold: 600;
+$font-weight-bold: 700;
+
+$font-size-s: 18px;
+$font-size-m: 20px;
+$font-size-l: 25px;
+$font-size-xl: 30px;
+$font-size-xxl: 50px;
+
+// color vars
+$color-brown: #3f3b38;
+$color-orange: #cc9065;
+$color-white: #ffffff;
+$color-floral-white: #fff9ed;
+$color-salmon: #fa8072;
+$color-teal: #008080;
+$color-rajah: #efb960;
+$color-selena: #8f979d;
+
+// theme vars
+$dark-text-color: $color-brown;
+$light-background-color: $color-floral-white;
+
+$light-text-color: $color-floral-white;
+$dark-background-color: $color-brown;
+
+// button color
+$background-color-orange: $color-orange;
+$background-color-brown: $color-brown;
+
+// input border vars
+$input-border: 2px solid rgba($dark-text-color, 0.2);
+$input-border-focus: 2px solid rgba($dark-text-color, 0.5);
+$input-border-checked: 2px solid rgba($dark-text-color, 0.8);
+
+// shadow vars
+$shadow: rgba(73, 56, 61, 0.144) 0px 8px 24px;
