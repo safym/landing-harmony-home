@@ -18,21 +18,21 @@
 
 ### 🖥️ Desktop
 <div align="center">
-    <img height="250px" src="https://github.com/safym/layout-store/assets/99616798/3674eb53-f684-4b38-baa8-07fdba01d480" />
-    <img height="250px" src="https://github.com/safym/layout-store/assets/99616798/099e6525-fa1c-48da-800b-8c05a39b87bd" />
+    <img height="270px" src="https://github.com/safym/layout-store/assets/99616798/3674eb53-f684-4b38-baa8-07fdba01d480" />
+    <img height="270px" src="https://github.com/safym/layout-store/assets/99616798/099e6525-fa1c-48da-800b-8c05a39b87bd" />
 </div>
 <div align="center">
-    <img height="250px" src="https://github.com/safym/layout-store/assets/99616798/9b0841d1-39b8-4fe2-b0b3-51b7d14a922b" />
-    <img height="250px" src="https://github.com/safym/layout-store/assets/99616798/c9fbf554-76ae-4d3c-8235-50e3a8ffb5e5" />
+    <img height="270px" src="https://github.com/safym/layout-store/assets/99616798/9b0841d1-39b8-4fe2-b0b3-51b7d14a922b" />
+    <img height="270px" src="https://github.com/safym/layout-store/assets/99616798/c9fbf554-76ae-4d3c-8235-50e3a8ffb5e5" />
 </div>
 
 
 ### 📱 Mobile
 <div align="center">
-    <img height="300px" src="https://github.com/safym/layout-store/assets/99616798/e689e6ab-7e12-420a-a1d7-4628b0f69c7a" />
-    <img height="300px" src="https://github.com/safym/layout-store/assets/99616798/d7f92c15-df59-4917-95f3-89795ac51a73" />
-    <img height="300px" src="https://github.com/safym/layout-store/assets/99616798/ca39f515-6a94-4eb5-8ae0-9a965d268efb" />
-    <img height="300px" src="https://github.com/safym/layout-store/assets/99616798/fb235361-396b-4370-90fe-9902510f1c1f" />
+    <img height="350px" src="https://github.com/safym/layout-store/assets/99616798/e689e6ab-7e12-420a-a1d7-4628b0f69c7a" />
+    <img height="350px" src="https://github.com/safym/layout-store/assets/99616798/d7f92c15-df59-4917-95f3-89795ac51a73" />
+    <img height="350px" src="https://github.com/safym/layout-store/assets/99616798/ca39f515-6a94-4eb5-8ae0-9a965d268efb" />
+    <img height="350px" src="https://github.com/safym/layout-store/assets/99616798/fb235361-396b-4370-90fe-9902510f1c1f" />
 </div>
 
 ## 📑 Требования:
