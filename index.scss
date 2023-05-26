@@ -259,7 +259,9 @@ html {
 
   font-weight: $font-weight-medium;
 
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+          backdrop-filter: blur(20px);
   background-color: rgba($color-white, 0.5);
   box-shadow: $shadow;
   transition: background 0.2s;
@@ -353,7 +355,8 @@ html {
   &__button {
     max-width: 250px;
     margin-top: 40px;
-    animation: scaleAnimation ease-in-out 2s infinite;
+    -webkit-animation: scaleAnimation ease-in-out 2s infinite;
+            animation: scaleAnimation ease-in-out 2s infinite;
   }
 }
 
@@ -405,7 +408,8 @@ html {
     justify-content: center;
     flex-wrap: wrap;
     row-gap: 10px;
-    column-gap: 10px;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
   }
 }
 
@@ -482,7 +486,8 @@ html {
 
   &__inputWrapper {
     display: flex;
-    column-gap: 10px;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
     align-items: center;
     justify-content: space-between;
   }
@@ -495,18 +500,27 @@ html {
 
   &__groupColor {
     display: flex;
-    column-gap: 10px;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
   }
 
   &__actionsWrapper {
     display: flex;
-    column-gap: 20px;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
     justify-content: end;
+  }
+
+  &::-webkit-backdrop {
+    background-color: rgba(17, 16, 20, 0.671);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
   }
 
   &::backdrop {
     background-color: rgba(17, 16, 20, 0.671);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
   }
 }
 
@@ -525,7 +539,8 @@ html {
     justify-content: space-around;
     align-items: center;
     row-gap: 20px;
-    column-gap: 20px;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
     padding: 50px 0;
   }
 
@@ -635,7 +650,7 @@ html {
   }
 
   .dialog {
-    padding: 10px;
+    padding: 20px;
 
     &__title {
       font-size: $font-size-xl;
@@ -649,6 +664,19 @@ html {
 
   .footer {
     text-align: center;
+  }
+}
+
+// animations
+@-webkit-keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
